@@ -1,2 +1,13 @@
-<h1>Castles#new</h1>
-<p>Find me in app/views/castles/new.html.erb</p>
+<br>
+<br>
+<div class="container new">
+  <div class="container title">
+    <h1>Castle Addition</h1>
+  </div>
+  <div class="container form">
+    <%= render 'form', castle: @castle %>
+  </div>
+</div>
+<div class="back">
+    <%= link_to 'Back', castles_path, class: 'backlink' %>
+  </div>
