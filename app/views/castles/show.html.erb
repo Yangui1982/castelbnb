@@ -1,37 +1,9 @@
 <br>
 <br>
-<div class="container list">
+<div class="container castle">
+  <div class="container">
+    <h1>List</h1>
+  </div>
   <div class="container">
     <h2><%= @castle.name %></h2>
   </div>
-  <div class="container">
-    <ul>
-      <div class="container cards">
-        <% @castle.reviews.each do |review| %>
-          <li>
-            <div class="card-trip">
-              <%= image_tag review.castle.photo %>
-              <div class="card-trip-infos">
-                <div class="info">
-                  <h2><%= review.castle.name %></h2>
-                  <p><%= review.comment %></p>
-                  <%= link_to review_path(review),
-                    method: :delete,
-                    data: { confirm: "Are you sure?" } do%>
-                    <i class="fa-regular fa-trash-can"></i>
-                    <% end %>
-                </div>
-              </div>
-            </div>
-          </li>
-        <% end %>
-      </div>
-    </ul>
-  </div>
-</div>
-<div class="container add">
-  <%= link_to new_castle_review_path(@castle) do %>
-  <i class="fa-solid fa-plus"></i>
-     Add a Review
-     <% end %>
-</div>
