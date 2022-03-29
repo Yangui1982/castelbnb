@@ -1,7 +1,7 @@
 class CastlesController < ApplicationController
   before_action :set_castle, only: [:show, :edit, :update, :destroy]
   def index
-    @castles = Castle.all
+    @castles = policy_scope(Castle).order(created_at: :desc)
   end
 
   def new
@@ -10,11 +10,13 @@ class CastlesController < ApplicationController
 
   def create
     @castle = Castle.new(castle_params)
+    @castle.user = current_user
     if @castle.save
       redirect_to castle_path(@castle)
     else
       render :new
     end
+    authorize @castle
   end
 
   def edit
@@ -36,7 +38,7 @@ class CastlesController < ApplicationController
   private
 
   def castle_params
-    params.require(:castle).permit(:name, :address, :price, :description)
+    params.require(:castle).permit(:name, :photo, :address, :price)
   end
 
   def set_castle
