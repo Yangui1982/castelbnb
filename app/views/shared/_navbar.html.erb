@@ -12,7 +12,9 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Add a Castle", new_castle_path, class: "nav-link button" %>
+            <% if policy(Restaurant).create? %>
+              <%= link_to "Add a Castle", new_castle_path, class: "nav-link button" %>
+            <% end %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://avatars.githubusercontent.com/u/95645345?v=4", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
