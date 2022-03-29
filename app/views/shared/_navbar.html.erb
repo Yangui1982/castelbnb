@@ -12,7 +12,7 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <% if policy(Restaurant).create? %>
+            <% if policy(Castle).create? %>
               <%= link_to "Add a Castle", new_castle_path, class: "nav-link button" %>
             <% end %>
           </li>
