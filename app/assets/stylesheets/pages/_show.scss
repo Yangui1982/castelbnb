@@ -1,0 +1,34 @@
+@import "home";
+@import "index";
+
+body {
+  background-color: white;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap
+}
+
+.add {
+  margin-left: 195px;
+  margin-top: 30px;
+  color: whitesmoke;
+  border-radius: 50px;
+  background-color: #E45858;
+  text-align: center;
+  height: 40px;
+  width: 200px;
+  padding-top: 8px;
+
+}
+
+.info p {
+  padding-left: 10px;
+}
+
+.info a {
+  padding-left: 310px;
+  color: black;
+
+}
