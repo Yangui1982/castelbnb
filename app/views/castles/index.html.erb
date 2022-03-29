@@ -1,2 +1,29 @@
-<h1>Castles#index</h1>
-<p>Find me in app/views/castles/index.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://geo.img.pmdstatic.net/fit/https.3A.2F.2Fi.2Epmdstatic.2Enet.2Fgeo.2F2021.2F10.2F13.2F1b38685a-23fd-4762-88b3-56041ce7dcd5.2Ejpeg/768x441/background-color/ffffff/focus-point/582%2C379/quality/70/les-20-chateaux-francais-les-plus-instagrammes.jpg);">
+  <div class="container">
+    <h1>Louez un Château!</h1>
+    <p>Vivez un moment inoubliable !</p>
+  </div>
+</div>
+
+<div class="container list">
+  <div class="container">
+    <h1>Les Châteaux</h1>
+  </div>
+  <br>
+    <ul>
+      <div class="lists-castle">
+        <% @castles.each do |castle| %>
+          <li>
+            <div class="card-category card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= castle.photo.attached? ? cl_image_path(castle.photo.key) : asset_path('Cinderella_Castle.jpg') %>)">
+              <h2 class="categorie"><%= link_to castle.name, castle %></h2>
+              <%= link_to castle_path(castle), class: 'trash',
+                    method: :delete,
+                    data: { confirm: "Are you sure?" } do%>
+                    <i class="fa-regular fa-trash-can"></i>
+                    <% end %>
+            </div>
+          </li>
+        <% end  %>
+      </div>
+    </ul>
+</div>
