@@ -1,7 +1,7 @@
 class CastlesController < ApplicationController
   before_action :set_castle, only: [:show, :edit, :update, :destroy]
   def index
-    @castles = Castle.all
+    @castles = policy_scope(Castle).order(created_at: :desc)
   end
 
   def new
@@ -16,6 +16,7 @@ class CastlesController < ApplicationController
     else
       render :new
     end
+    authorize @castle
   end
 
   def edit
