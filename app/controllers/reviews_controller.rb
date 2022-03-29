@@ -15,7 +15,7 @@ class ReviewsController < ApplicationController
     @castle = Castle.find(params[:castle_id])
     @review.castle = @castle
     if @review.save
-      redirect_to castle_path(@castle)
+      redirect_to castle_reviews_path(@castle)
     else
       render :new
     end

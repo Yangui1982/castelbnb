@@ -8,7 +8,13 @@
 User.destroy_all
 
 user = User.create!(email: "kev03@gmail.com", password: "totooo")
+#user1 = User.create!(email: "angelina@gmail.com", password: "totooo")
 
 Castle.destroy_all
 
-Castle.create!(name: "Chambord", description: "Le plus grand château de la Loire!", address: "Le Château, 41250 CHAMBORD", price: 1500, user: user)
+castle = Castle.create!(name: "Chambord", description: "Le plus grand château de la Loire!", address: "Le Château, 41250 CHAMBORD", price: 1500, user: user)
+
+
+#Review.destroy_all
+
+#Review.create!(rating: 5, comment: "Un très beau séjour, à recommander!", castle: castle)
