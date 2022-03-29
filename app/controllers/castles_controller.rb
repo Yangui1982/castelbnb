@@ -28,6 +28,7 @@ class CastlesController < ApplicationController
   end
 
   def show
+    authorize @castle
   end
 
   def destroy
