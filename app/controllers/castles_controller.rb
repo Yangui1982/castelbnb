@@ -28,6 +28,7 @@ class CastlesController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
     authorize @castle
   end
 

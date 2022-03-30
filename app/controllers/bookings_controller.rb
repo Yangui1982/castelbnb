@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
-  before_action :set_castle, only: [:new, :create]
-  before_action :set_booking, except: [:index]
+  before_action :set_castle, only: [:index, :new, :create, :show]
+  before_action :set_booking, except: [:index, :new, :create]
     
   def index
     @bookings = Booking.all
@@ -8,7 +8,7 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
-    authorize @castle
+    authorize @booking
   end
 
   def create
@@ -17,10 +17,11 @@ class BookingsController < ApplicationController
     @booking.castle = @castle
     @booking.user = current_user
     if @booking.save
-      redirect_to  castle_booking_path(@booking)
+      redirect_to  castle_booking_path(@castle, @booking)
     else
       render :new
     end
+    authorize @booking
   end
 
   def edit
@@ -34,6 +35,9 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    @booking.destroy
+    redirect_to root_path, notice: 'Booking successfully destroyed.'
+    authorize @booking
   end
 
   private

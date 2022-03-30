@@ -1,2 +1,19 @@
-<h1>Bookings#show</h1>
-<p>Find me in app/views/bookings/show.html.erb</p>
+
+<h1>Booking completed!</h1>
+
+<h2>.</h2>
+
+<br>
+<br>
+<div class="container booking">
+  <div class="container">
+    <h1> Your reservation at <%= @booking.castle.name %> is registered </h1>
+  </div>
+  <div class="container">
+    <p>For one day and 2 people</p>
+    <p>From <%= @booking.start_date %></p>
+    <p>To <%= @booking.end_date %></p>
+    <p>Access : <%= @booking.castle.address %></p>
+    <%= link_to "Back to reservations", castle_bookings_path(@castle), class: 'backlink' %>
+  </div>
+</div>
