@@ -1,24 +1,37 @@
 class ReviewsController < ApplicationController
-  before_action :set_review, only: [:new, :create, :index]
-
-
-  def index
-    @reviews = Review.all
-  end
+  before_action :set_castle, only: [:new, :create]
+  before_action :set_review, only: [:edit, :update, :destroy]
 
   def new
     @review = Review.new
+    authorize @review
   end
 
   def create
     @review = Review.new(review_params)
-    @castle = Castle.find(params[:castle_id])
     @review.castle = @castle
     if @review.save
-      redirect_to castle_reviews_path(@castle)
+      redirect_to castle_path(@castle)
     else
       render :new
     end
+    authorize @review
+  end
+
+  def edit
+    authorize @review
+  end
+
+  def update
+    @review.update(review_params)
+    redirect_to castle_path(@review.castle)
+    authorize @review
+  end
+
+  def destroy
+    @review.destroy
+    redirect_to castle_path(@review.castle)
+    authorize @review
   end
 
   private
@@ -32,6 +45,6 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:comment, :rating, :castle_id)
+    params.require(:review).permit(:comment, :rating, :castle)
   end
 end

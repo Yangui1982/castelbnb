@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
   before_action :set_castle, only: [:new, :create]
-  before_action :set_booking, except: [:index]
-    
+  before_action :set_booking, except: [:index, :new]
+
   def index
     @bookings = Booking.all
   end
@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
     @booking.castle = @castle
     @booking.user = current_user
     if @booking.save
-      redirect_to  castle_booking_path(@booking)
+      redirect_to castle_booking_path(@booking)
     else
       render :new
     end
