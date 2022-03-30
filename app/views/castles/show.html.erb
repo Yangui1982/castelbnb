@@ -12,6 +12,10 @@
         <p><%= @castle.description %></p>
       </div>
   </div>
+
+  <div class="back">  
+    <%= link_to 'book', new_castle_booking_path(@castle), class:'backlink'  %>
+  </div>
 </div>
 
 <div class="container">
