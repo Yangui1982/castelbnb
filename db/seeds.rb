@@ -10,6 +10,11 @@ require 'faker'
 Castle.destroy_all
 User.destroy_all
 
+admin = User.create!(
+  email: 'admin@admin.com',
+  password: 'azerty'
+)
+
 user1 = User.create!(
   email: 'marcel.patulacci@gmail.com',
   password: 'azerty'
