@@ -1,13 +1,40 @@
 <br>
 <br>
 <div class="container castle">
-  <div class="container">
-    <h1><%= @castle.name %></h1>
-  </div>
-  <div class="container">
-    <p><%= @castle.description %></p>
+  <div class="card-trip">
+      <div class="container image">
+        <%= cl_image_path(@castle.photo.key) %>
+      </div>
+      <div class="container">
+        <h1><%= @castle.name %></h1>
+      </div>
+      <div class="container">
+        <p><%= @castle.description %></p>
+      </div>
   </div>
 
   <div class="back">  
     <%= link_to 'book', new_castle_booking_path(@castle), class:'backlink'  %>
   </div>
+</div>
+
+<div class="container">
+  <p><%= @review.comment %> | Rating : <%= @review.rating %></p>
+     <%= link_to castle_reviews_path(@castle, @review),
+       method: :delete,
+       data: { confirm: "Are you sure?" } do%>
+       <i class="fa-regular fa-trash-can"></i>
+       <% end %>
+</div>
+
+<div class="back">
+    <%= link_to 'Back', castles_path, class: 'backlink' %>
+</div>
+
+<div class="back">
+<%= link_to 'Update', edit_castle_path, class: 'backlink' %>
+</div>
+
+<div class="back">
+<%= link_to 'Review', new_castle_review_path(@castle), class: 'backlink' %>
+</div>

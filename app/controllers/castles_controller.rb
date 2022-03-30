@@ -6,6 +6,7 @@ class CastlesController < ApplicationController
 
   def new
     @castle = Castle.new
+    authorize @castle
   end
 
   def create
@@ -20,15 +21,17 @@ class CastlesController < ApplicationController
   end
 
   def edit
+    authorize @castle
   end
 
   def update
     @castle.update(castle_params)
     redirect_to castle_path
+    authorize @castle
   end
 
   def show
-    @booking = Booking.new
+    @review = Review.new
     authorize @castle
   end
 
