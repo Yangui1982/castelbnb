@@ -36,3 +36,11 @@
   <%= link_to 'Review', new_castle_review_path(@castle), class: 'backlink' %>
   </div>
 </div>
+
+<div>
+<%= simple_form_for([@castle,@booking]) do |f| %>
+    <%= f.input :start_date, label: 'Date de début du séjour :' %>
+    <%= f.input :end_date, label: 'Date de fin du séjour :' %>
+    <%= f.submit "Book" %>
+<% end %>
+</div>
