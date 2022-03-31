@@ -2,7 +2,11 @@
 <br>
 <div class="container castle">
   <div class="card-trip">
-    <%= cl_image_tag(@castle.photo.key) %>
+    <% if @castle.photo.attached? %>
+      <%= cl_image_tag(@castle.photo.key) %>
+    <% else %>
+      <%= image_tag('Cinderella_Castle.jpg') %>
+    <% end %>
     <div class="card-trip-infos">
       <div>
         <h2><%= @castle.name %></h2>

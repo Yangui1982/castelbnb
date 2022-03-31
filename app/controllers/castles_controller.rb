@@ -42,6 +42,7 @@ class CastlesController < ApplicationController
   def destroy
     @castle.destroy
     redirect_to castles_path
+    authorize @castle
   end
 
   private
