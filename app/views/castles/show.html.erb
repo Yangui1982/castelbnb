@@ -19,12 +19,9 @@
 </div>
 
 <div class="container">
-  <p><%= @review.comment %> | Rating : <%= @review.rating %></p>
-     <%= link_to castle_reviews_path(@castle, @review),
-       method: :delete,
-       data: { confirm: "Are you sure?" } do%>
-       <i class="fa-regular fa-trash-can"></i>
-       <% end %>
+  <% @reviews.each do |review|  %>
+    <p>Utilisateur anonyme | <%= review.comment %> - note : <%= review.rating %>/5</p>
+  <% end %>
 </div>
 
 <div class="back">
