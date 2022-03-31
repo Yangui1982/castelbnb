@@ -3,7 +3,7 @@
 <div class="container castle">
   <div class="card-trip">
       <div class="container image">
-        <%= cl_image_path(@castle.photo.key) %>
+        <%= cl_image_tag(@castle.photo.key) %>
       </div>
       <div class="container">
         <h1><%= @castle.name %></h1>
@@ -13,7 +13,7 @@
       </div>
   </div>
 
-  <div class="back">  
+  <div class="back">
     <%= link_to 'book', new_castle_booking_path(@castle), class:'backlink'  %>
   </div>
 </div>
