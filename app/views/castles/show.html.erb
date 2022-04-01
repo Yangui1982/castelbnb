@@ -15,10 +15,8 @@
       <h2 class="card-trip-pricing"><%= @castle.price %> €</h2>
     </div>
   </div>
-
-
-  <div class="back">
-    <%= link_to 'book', new_castle_booking_path(@castle), class:'backlink'  %>
+  <div class="book">
+    <%= link_to 'book', new_castle_booking_path(@castle), class:'booklink'  %>
   </div>
 </div>
 

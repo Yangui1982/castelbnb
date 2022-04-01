@@ -86,7 +86,25 @@ body {
   text-align: justify;
 }
 
+.book {
+  color: whitesmoke;
+  border-radius: 50px;
+  background-color: #E45858;
+  object-position: center;
+  height: 40px;
+  width: 100px;
+  padding-top: 8px;
+}
 
+.booklink {
+  border-radius: 50px;
+  background-color: #E45858;
+  text-align: center;
+  height: 40px;
+  width: 150px;
+  border: none;
+  color: whitesmoke;
+}
 
 .choice {
   display: flex;
