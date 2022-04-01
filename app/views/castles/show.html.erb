@@ -1,5 +1,7 @@
 <br>
 <br>
+
+
 <div class="container castle">
   <div class="card-trip">
     <% if @castle.photo.attached? %>
@@ -17,7 +19,7 @@
       </div>
       <div class="booking">
     <div class="book">
-      <%= link_to 'Reservez!', new_castle_booking_path(@castle), class:'booklink'  %>
+    <a href="#Réservez!" data-controller="scroll-to" class = "booklink" > Réservez! </a>
     </div>
   </div>
     </div>
@@ -32,24 +34,25 @@
 
 <div class="container choice">
   <div class="back">
-      <%= link_to 'Back', castles_path, class: 'backlink' %>
+      <%= link_to 'Retour', castles_path, class: 'backlink' %>
   </div>
 
   <% if policy(@castle).update? %>
   <div class="back">
-  <%= link_to 'Update', edit_castle_path, class: 'backlink' %>
+  <%= link_to 'Mettre à jour', edit_castle_path, class: 'backlink' %>
   </div>
   <% end %>
 
   <div class="back">
-  <%= link_to 'Review', new_castle_review_path(@castle), class: 'backlink' %>
+  <%= link_to 'Avis', new_castle_review_path(@castle), class: 'backlink' %>
   </div>
 </div>
 
-<div>
-<%= simple_form_for([@castle,@booking]) do |f| %>
-    <%= f.input :start_date, label: 'Date de début du séjour :' %>
-    <%= f.input :end_date, label: 'Date de fin du séjour :' %>
-    <%= f.submit "Book" %>
-<% end %>
+<div class="container-simple-form">
+  <%= simple_form_for([@castle,@booking]) do |f| %>
+      <%= f.input :start_date, label: 'Date de début du séjour :' %>
+      <%= f.input :end_date, label: 'Date de fin du séjour :' %>
+      <%= f.submit "Réservez", class: 'backlink' %>
+  <% end %>
 </div>
+<h2 id="Réservez!"></h2>
