@@ -26,13 +26,13 @@
 
 <div class="container">
   <% @reviews.each do |review|  %>
-    <p>Utilisateur anonyme | <%= review.comment %> - note : <%= review.rating %>/5</p>
+    <p> <%= current_user.email %> | <%= review.comment %> - note : <%= review.rating %>/5</p>
   <% end %>
 </div>
 
 <div class="container choice">
   <div class="back">
-      <%= link_to 'Back', castles_path, class: 'backlink' %>
+      <%= link_to 'Retour', castles_path, class: 'backlink' %>
   </div>
 
   <% if policy(@castle).update? %>
@@ -42,7 +42,7 @@
   <% end %>
 
   <div class="back">
-  <%= link_to 'Review', new_castle_review_path(@castle), class: 'backlink' %>
+  <%= link_to 'Avis', new_castle_review_path(@castle), class: 'backlink' %>
   </div>
 </div>
 

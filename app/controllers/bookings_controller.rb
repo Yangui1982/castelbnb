@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
   before_action :set_castle, only: [:index, :new, :create, :show]
   before_action :set_booking, except: [:index, :new, :create]
-    
+
   def index
     @bookings = Booking.all
   end
@@ -25,9 +25,14 @@ class BookingsController < ApplicationController
   end
 
   def edit
+    authorize @booking
   end
 
   def update
+    @booking.available = false
+    @booking.save
+    redirect_to root_path
+    authorize @booking
   end
 
   def show

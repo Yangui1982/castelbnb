@@ -13,14 +13,13 @@
         <% if user_signed_in? %>
           <li class="nav-item active">
             <% if policy(Castle).create? %>
-              <%= link_to "Add a Castle", new_castle_path, class: "nav-link button" %>
+              <%= link_to "Ajoutez un Château", new_castle_path, class: "nav-link button" %>
             <% end %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "marcel.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
