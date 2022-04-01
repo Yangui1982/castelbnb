@@ -2,9 +2,8 @@
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "castle.png", width: 100, alt: "navbar" %>
-      <p>CASTELBnB</p>
     <% end %>
-
+    <p>CASTELBnB</p>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -17,13 +16,12 @@
               <%= link_to "Ajoutez un Château", new_castle_path, class: "nav-link button" %>
             <% end %>
           </li>
-          <li class="nav-item dropdown">
-            <%= image_tag "marcel.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-            </div>
-          </li>
+
+
+              <%= link_to "Dashboard", dashboard_path, class: "nav-link button" %>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link button" %>
+
+
         <% else %>
           <li class="nav-item">
             <%= link_to "Login", new_user_session_path, class: "nav-link button" %>

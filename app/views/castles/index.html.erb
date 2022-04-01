@@ -19,11 +19,9 @@
             <div class="card-category card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= castle.photo.attached? ? cl_image_path(castle.photo.key) : asset_path('Cinderella_Castle1.jpg') %>)">
               <h2 class="categorie"><%= link_to castle.name, castle, class: 'castle-name' %></h2>
               <% if policy(castle).destroy? %>
-                <%= link_to castle_path(castle), class: 'trash',
-                      method: :delete,
-                      data: { confirm: "Are you sure?" } do%>
-                      <i class="fa-regular fa-trash-can"></i>
-                      <% end %>
+                <%= simple_form_for (castle), method: :delete do |f|  %>
+                 <%= f.submit 'delete', class: 'trash' %>
+                <% end %>
               <% end %>
             </div>
           </li>
