@@ -10,7 +10,7 @@ body {
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-
+  width: 400px
 }
 
 .card-trip > img {
@@ -31,17 +31,12 @@ body {
   margin: 0;
 }
 
-
 .card-trip .card-trip-infos {
   padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
+
 }
 
 .card-trip-infos .card-trip-user {
-  position: absolute;
   right: 16px;
   top: -20px;
   width: 40px;
@@ -75,7 +70,8 @@ body {
   background-color: #F9F4EF;
   padding: 30px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-
+  display: flex;
+  justify-content: center;
 }
 
 .castle h1 {
@@ -86,11 +82,18 @@ body {
   text-align: justify;
 }
 
+
+
+.booking {
+  display: flex;
+  justify-content: center;
+}
+
 .book {
   color: whitesmoke;
+  text-align: center;
   border-radius: 50px;
   background-color: #E45858;
-  object-position: center;
   height: 40px;
   width: 100px;
   padding-top: 8px;
