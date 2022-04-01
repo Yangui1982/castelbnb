@@ -49,11 +49,11 @@ h2 {
 }
 
 a {
-  color: whitesmoke;
   text-decoration: none;
 }
 
 .trash {
+  color: whitesmoke;
   text-align:right;
   padding-right: 10px;
   position: absolute;
@@ -63,6 +63,10 @@ a {
 
 .categorie {
   padding-bottom: 10px;
+}
+
+.castle-name {
+  color: whitesmoke;
 }
 
 .info {

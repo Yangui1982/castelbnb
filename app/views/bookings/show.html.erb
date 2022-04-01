@@ -17,3 +17,8 @@
     <%= link_to "Back to reservations", castle_bookings_path(@castle), class: 'backlink' %>
   </div>
 </div>
+
+<div class="book-accept">
+  <%= link_to "Accept the booking", castle_booking_path(rent_demand.castle, rent_demand), method: 'PATCH', class: "add" %>
+  <%= link_to "Decline the booking", root_path %>
+</div>

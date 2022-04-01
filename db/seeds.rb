@@ -11,9 +11,10 @@ require "open-uri"
 Castle.destroy_all
 User.destroy_all
 
-admin = User.create!(
+User.create!(
   email: 'admin@admin.com',
-  password: 'azerty'
+  password: 'azerty',
+  admin: true
 )
 
 user1 = User.create!(

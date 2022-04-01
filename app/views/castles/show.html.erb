@@ -5,20 +5,22 @@
     <% if @castle.photo.attached? %>
       <%= cl_image_tag(@castle.photo.key) %>
     <% else %>
-      <%= image_tag('Cinderella_Castle.jpg') %>
+      <%= image_tag('Cinderella_Castle1.jpg') %>
     <% end %>
     <div class="card-trip-infos">
       <div>
         <h2><%= @castle.name %></h2>
         <p><%= @castle.description %></p>
       </div>
+      <div class="price">
       <h2 class="card-trip-pricing"><%= @castle.price %> €</h2>
+      </div>
+      <div class="booking">
+    <div class="book">
+      <%= link_to 'Reservez!', new_castle_booking_path(@castle), class:'booklink'  %>
     </div>
   </div>
-
-
-  <div class="back">
-    <%= link_to 'book', new_castle_booking_path(@castle), class:'backlink'  %>
+    </div>
   </div>
 </div>
 
@@ -33,9 +35,11 @@
       <%= link_to 'Back', castles_path, class: 'backlink' %>
   </div>
 
+  <% if policy(@castle).update? %>
   <div class="back">
   <%= link_to 'Update', edit_castle_path, class: 'backlink' %>
   </div>
+  <% end %>
 
   <div class="back">
   <%= link_to 'Review', new_castle_review_path(@castle), class: 'backlink' %>
