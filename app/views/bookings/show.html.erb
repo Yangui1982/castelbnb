@@ -1,5 +1,5 @@
 
-<h1>Booking completed!</h1>
+<h1>Détails de votre réservation</h1>
 
 <h2>.</h2>
 
@@ -7,18 +7,12 @@
 <br>
 <div class="container booking">
   <div class="container">
-    <h1> Your reservation at <%= @booking.castle.name %> is registered </h1>
+    <h1> Séjour au <%= @booking.castle.name %> </h1>
   </div>
   <div class="container">
-    <p>For one day and 2 people</p>
-    <p>From <%= @booking.start_date %></p>
-    <p>To <%= @booking.end_date %></p>
-    <p>Access : <%= @booking.castle.address %></p>
-    <%= link_to "Back to reservations", castle_bookings_path(@castle), class: 'backlink' %>
+    <p>Du <%= @booking.start_date %></p>
+    <p>Au <%= @booking.end_date %></p>
+    <p>Accès : <%= @booking.castle.address %></p>
+    <%= link_to "Continuer", castle_bookings_path(@castle), class: 'backlink' %>
   </div>
-</div>
-
-<div class="book-accept">
-  <%= link_to "Accept the booking", castle_booking_path(rent_demand.castle, rent_demand), method: 'PATCH', class: "add" %>
-  <%= link_to "Decline the booking", root_path %>
 </div>

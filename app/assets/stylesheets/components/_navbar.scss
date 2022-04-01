@@ -1,3 +1,11 @@
+.navbar-brand {
+  font-size:large;
+  font-family: Roboto;
+  font-weight: bolder;
+  display: flex;
+  align-items: baseline;
+}
+
 .navbar-lewagon {
   height: 100px;
   justify-content: space-between;
@@ -10,6 +18,8 @@
 }
 
 .navbar-lewagon .navbar-brand img {
+  display: flex;
+  justify-content: flex-start;
   width: 80px;
 }
 
