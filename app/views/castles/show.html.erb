@@ -28,7 +28,7 @@
 
 <div class="container">
   <% @reviews.each do |review|  %>
-    <p>Utilisateur anonyme | <%= review.comment %> - note : <%= review.rating %>/5</p>
+    <p> <%= current_user.email %> | <%= review.comment %> - note : <%= review.rating %>/5</p>
   <% end %>
 </div>
 

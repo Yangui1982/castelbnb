@@ -1,0 +1,36 @@
+<div class="container">
+  <h1>Dashboard</h1>
+</div>
+<div class="container dashboard">
+  <h2 class="user"> Bienvenue <%= @user.email %> </h2>
+  <ul>
+    <div class="chateaux">
+      <h1>Vos Châteaux</h1>
+        <% @castles.each do |castle| %>
+          <li> <h2 class="user"><%= castle.name %> </h2></li>
+        <% end %>
+    </div>
+    <br>
+    <div class="reservation">
+      <h1>Reservations</h1>
+      <div class="informations">
+        <% @rents_demands.each do |rent| %>
+          <h2 class="user"><%= rent.castle.name %></h2>
+          <h3 class="user">Par <%= rent.user.email %> Du
+                               <%= rent.start_date %> Au
+                               <%= rent.end_date %></h3>
+          <div class="choice">
+            <%= link_to "Validez",
+                castle_booking_path(rent.castle, rent), class: "booklink",
+                method: :patch
+                 %>
+            <%= link_to "Déclinez",
+                castle_booking_path(rent.castle, rent), class: "booklink",
+                method: :delete,
+                data: { confirm: "Are you sure?" } %>
+          </div>
+            <% end %>
+      </div>
+    </div>
+  </ul>
+</div>
